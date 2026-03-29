@@ -20,11 +20,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module tb_structural_mux();
+module tb_mux();
 reg [3:0]A;
 reg [1:0]sel;
 wire out;
-structural_mux DUT(.A(A),.sel(sel),.out(out));
+mux DUT(.A(A),.sel(sel),.out(out));
 initial begin
 #5 A = 4'b1110;
 #5 sel=2'b00;

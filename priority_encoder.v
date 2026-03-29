@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 29.03.2026 19:51:42
+// Create Date: 29.03.2026 21:11:00
 // Design Name: 
-// Module Name: priority_encoder
+// Module Name: mux
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,21 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module priority_encoder #
-(parameter Data_width=8)(
-input [Data_width-1:0] D,
-output reg [$clog2(Data_width)-1:0]Q
+module mux(
+input [3:0] A,
+input [1:0] sel,
+output reg out
     );
-    
-    integer i;
     always@(*)begin
-    Q=0;
-    for(i=0;i<=Data_width-1;i=i+1)begin
-    if(D[i]==1'b1) begin
-    Q=i[$clog2(Data_width)-1:0];
-    end
-    end
-    end
-    
-
+    case (sel)
+    2'b00:out=A[0];
+    2'b01:out=A[1];
+    2'b10:out=A[2];
+    2'b11:out=A[3];
+    default : out=0;
+endcase
+end
 endmodule

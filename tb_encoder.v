@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 29.03.2026 20:24:04
+// Create Date: 29.03.2026 21:25:34
 // Design Name: 
-// Module Name: tb_encoder
+// Module Name: structural_mux
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,22 +20,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module tb_encoder();
-reg [7:0]D;
-wire [2:0]Q;
-priority_encoder DUT(
-.D(D),
-.Q(Q));
-initial begin
-#5 D=8'H84;
-#5 D=8'H44;
-#5 D=8'H24;
-#5 D=8'H04;
-#5 D=8'H08;
-end
-
-initial begin
-$monitor("Time = %t, Input1 = %b, Output1 = %b", $time, D, Q);
-
-end
+module structural_mux(
+input [3:0] A,
+input [1:0] sel,
+output reg out
+    );
+    
+    always@(*)begin
+    out = (A[1]&sel[0] | A[0]&(~sel[0]))&(~sel[1]) | (A[3]&sel[0] | A[2]&(~sel[0]))&(sel[1]);
+    end
+    
 endmodule

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 29.03.2026 21:25:34
+// Create Date: 29.03.2026 19:51:42
 // Design Name: 
-// Module Name: structural_mux
+// Module Name: priority_encoder
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,14 +20,21 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module structural_mux(
-input [3:0] A,
-input [1:0] sel,
-output reg out
+module priority_encoder #
+(parameter Data_width=8)(
+input [Data_width-1:0] D,
+output reg [$clog2(Data_width)-1:0]Q
     );
     
+    integer i;
     always@(*)begin
-    out = (A[1]&sel[0] | A[0]&(~sel[0]))&(~sel[1]) | (A[3]&sel[0] | A[2]&(~sel[0]))&(sel[1]);
+    Q=0;
+    for(i=0;i<=Data_width-1;i=i+1)begin
+    if(D[i]==1'b1) begin
+    Q=i[$clog2(Data_width)-1:0];
+    end
+    end
     end
     
+
 endmodule

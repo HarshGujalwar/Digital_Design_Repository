@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 29.03.2026 21:17:57
+// Create Date: 29.03.2026 20:24:04
 // Design Name: 
-// Module Name: tb_mux
+// Module Name: tb_encoder
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,24 +20,22 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module tb_mux();
-reg [3:0]A;
-reg [1:0]sel;
-wire out;
-mux DUT(.A(A),.sel(sel),.out(out));
+module tb_encoder();
+reg [7:0]D;
+wire [2:0]Q;
+priority_encoder DUT(
+.D(D),
+.Q(Q));
 initial begin
-#5 A = 4'b1110;
-#5 sel=2'b00;
-#5 sel=2'b01;
-#5 sel=2'b10;
-#5 sel=2'b11;
-#5 A = 4'b1010;
-#5 sel=2'b00;
-#5 sel=2'b01;
-#5 sel=2'b10;
-#5 sel=2'b11;
+#5 D=8'H84;
+#5 D=8'H44;
+#5 D=8'H24;
+#5 D=8'H04;
+#5 D=8'H08;
 end
+
 initial begin
-$monitor("Time=%t,input1=%b,input2=%b,output1=%b",$time,A , sel ,out);
+$monitor("Time = %t, Input1 = %b, Output1 = %b", $time, D, Q);
+
 end
 endmodule
