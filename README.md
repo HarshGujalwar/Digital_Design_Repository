@@ -10,3 +10,7 @@ Day 3
 Learn about FSM 
 Sequence detector code and tb
 Traffic controller code and tb
+Day 4
+generate use cases updated  
+RCA using generate statement  
+Barrel shifter using generate if and parameterized direction and width  
