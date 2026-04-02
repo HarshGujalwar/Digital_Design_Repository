@@ -14,3 +14,8 @@ Day 4
 generate use cases updated  
 RCA using generate statement  
 Barrel shifter using generate if and parameterized direction and width  
+DAY 5    
+Start of 4 stage processor project   
+stage 1 decode(in this case just input latching) and stage 2 decode and compute .   
+resuing the RCA and barrel shifter previously implemented.
+making top level testbench to check the functionality    
