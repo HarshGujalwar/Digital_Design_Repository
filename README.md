@@ -22,4 +22,11 @@ making top level testbench to check the functionality
 DAY 6   
 ALU stages 3 and 4 i.e flag generator and output stage    
 tb for all modules    
-
+DAY 7 
+Parameterized Sync rom   
+rom that reads from hex file   
+reg_file 16x8 register file    
+Tb for reg file   
+DAY 8   
+Skid Buffer    
+Pipeline Register    
