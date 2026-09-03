@@ -30,6 +30,7 @@ Tb for reg file
 DAY 8   
 Skid Buffer    
 Pipeline Register    
-DAY 9
+DAY 9   
 DFF verification Testbench and code
-
+DAY 10   
+FIFO design and verificiation tb
